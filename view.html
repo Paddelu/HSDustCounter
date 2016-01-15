@@ -1,0 +1,28 @@
+<html lang = "fi">
+    <head>
+        <title>AngularJS - Hearthstone Dust Counter</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>HEARTHSTONE DUST COUNTER</h1>
+        <div ng-app = ""  ng-init = "DustAmount = [{name:'Common',cost: 5}, {name:'Rare',cost: 20}, {name:'Epic',cost: 100}, {name:'Legendary',cost: 400}]">
+            <p>Enter your Name: <input type = "text" ng-model = "name"></p>
+            <p>Hello <span ng-bind = "name"></span>!</p>
+            <div>
+                <p>Common cards: <input type = "number" ng-model = "common" ng-init="common=0" placeholder="Common cards"></p>
+                <p>Rare cards: <input type = "number" ng-model = "rare" value=0 ng-init="rare=0" placeholder="Rare cards"></p>
+                <p>Epic cards: <input type = "number" ng-model = "epic" value=0 ng-init="epic=0" placeholder="Epic cards"></p>
+                <p>Legendary cards: <input type = "number" ng-model = "legendary" value=0 ng-init="legendary=0" placeholder="Legendary cards"></p>
+            </div>
+            <p>Amount of dust aquired on disechant:</p>
+            <ol>
+                <li>{{DustAmount[0].name}} : {{DustAmount[0].cost * common}}</li>
+                <li>{{DustAmount[1].name}} : {{DustAmount[1].cost * rare}}</li>
+                <li>{{DustAmount[2].name}} : {{DustAmount[2].cost * epic}}</li>
+                <li>{{DustAmount[3].name}} : {{DustAmount[3].cost * legendary}}</li>
+            </ol>
+            <p>DUST TOTAL: {{DustAmount[0].cost * common + DustAmount[1].cost * rare + DustAmount[2].cost * epic + DustAmount[3].cost * legendary}}</p>
+        </div>
+        <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    </body>
+</html>
