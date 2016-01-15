@@ -1,1 +1,1 @@
-My first AngularJS project
+A simple Disenchant dustcounter
