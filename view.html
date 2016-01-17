@@ -1,28 +1,34 @@
 <html lang = "fi">
     <head>
         <title>AngularJS - Hearthstone Dust Counter</title>
+        <link href="node_modules/WinJS/css/ui-light.min.css" rel="stylesheet">
         <meta charset="utf-8">
     </head>
-    <body>
-        <h1>HEARTHSTONE DUST COUNTER</h1>
-        <div ng-app = ""  ng-init = "DustAmount = [{name:'Common',cost: 5}, {name:'Rare',cost: 20}, {name:'Epic',cost: 100}, {name:'Legendary',cost: 400}]">
-            <p>Enter your Name: <input type = "text" ng-model = "name"></p>
-            <p>Hello <span ng-bind = "name"></span>!</p>
+    <body ng-app = "myApp"  ng-init = "DustAmount = [{name:'Common',cost: 5}, {name:'Rare',cost: 20}, {name:'Epic',cost: 100}, {name:'Legendary',cost: 400}]">
+        <p class = "win-h1">HEARTHSTONE DUST COUNTER</p>
+        
+        <div ng-controller="MainCtrl">
+            <p class = "win-type-base">Enter your Name: <input class='win-textbox' type = "text" ng-model = "name"></p>
+            <p class="win-type-subtitle">Hello <span ng-bind = "name"></span>!</p>
             <div>
-                <p>Common cards: <input type = "number" ng-model = "common" ng-init="common=0" placeholder="Common cards"></p>
-                <p>Rare cards: <input type = "number" ng-model = "rare" value=0 ng-init="rare=0" placeholder="Rare cards"></p>
-                <p>Epic cards: <input type = "number" ng-model = "epic" value=0 ng-init="epic=0" placeholder="Epic cards"></p>
-                <p>Legendary cards: <input type = "number" ng-model = "legendary" value=0 ng-init="legendary=0" placeholder="Legendary cards"></p>
+                <p class = "win-h5">Common cards: <input class='win-textbox' id="common" type = "number" ng-model = "common" ng-init="common='0'" placeholder="Common cards"> <button class="win-button win-button-primary" ng-click="addC(common)">Add</button></p> 
+                <p class = "win-type-base">Rare cards: <input class='win-textbox' id="rare" type = "number" ng-model = "rare" ng-init="rare='0'" placeholder="Rare cards"> <button class="win-button win-button-primary" ng-click="addR(rare)">Add</button></p>
+                <p class = "win-type-base">Epic cards: <input class='win-textbox' id="epic" type = "number" ng-model = "epic" ng-init="epic='0'" placeholder="Epic cards"> <button class="win-button win-button-primary" ng-click="addE(epic)">Add</button></p>
+                <p class = "win-type-base">Legendary cards: <input  class='win-textbox' id="lege" type = "number" ng-model = "legendary" ng-init="legendary='0'" placeholder="Legendary cards"> <button class="win-button win-button-primary" ng-click="addL(legendary)">Add</button></p>
             </div>
-            <p>Amount of dust aquired on disechant:</p>
+            <p  class = "win-type-base">Amount of dust aquired on disechant:</p>
             <ol>
-                <li>{{DustAmount[0].name}} : {{DustAmount[0].cost * common}}</li>
-                <li>{{DustAmount[1].name}} : {{DustAmount[1].cost * rare}}</li>
-                <li>{{DustAmount[2].name}} : {{DustAmount[2].cost * epic}}</li>
-                <li>{{DustAmount[3].name}} : {{DustAmount[3].cost * legendary}}</li>
+                <li class = "win-type-body">{{DustAmount[0].name}} : {{+DustAmount[0].cost * common}}</li>
+                <li class = "win-type-body">{{DustAmount[1].name}} : {{+DustAmount[1].cost * rare}}</li>
+                <li class = "win-type-body">{{DustAmount[2].name}} : {{+DustAmount[2].cost * epic}}</li>
+                <li class = "win-type-body">{{DustAmount[3].name}} : {{+DustAmount[3].cost * legendary}}</li>
             </ol>
-            <p>DUST TOTAL: {{DustAmount[0].cost * common + DustAmount[1].cost * rare + DustAmount[2].cost * epic + DustAmount[3].cost * legendary}}</p>
+            <p class ="win-type-body">DUST TOTAL: {{DustAmount[0].cost * common--DustAmount[1].cost * rare--DustAmount[2].cost * epic--DustAmount[3].cost * legendary}}</p>
         </div>
+        
         <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src = "node_modules/winjs/js/base.min.js" ></script>
+        <script src = "node_modules/winjs/js/ui.min.js" ></script>
+        <script src = "controller.js"></script>
     </body>
 </html>
