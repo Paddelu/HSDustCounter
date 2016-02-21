@@ -2,23 +2,23 @@
             <p class = "win-type-base">Enter your Name: <input id= "name" class='win-textbox' type = "text" ng-model = "name"></p>
             <p class="win-type-subtitle">Hello <span ng-bind = "name"></span>!</p>
             <div>
-                <p class = "win-type-base">Common: <input class='win-textbox' id="common" type = "number" ng-model = "common"  placeholder="Common cards"><button class="win-button win-button-primary" ng-click="adds('common',common)">Add</button> <input class='win-textbox' id="Gcommon" type = "number" ng-model = "Gcommon"  placeholder="Common cards"><button class="win-button win-button-seconday" style ="background-color: yellow" ng-click="adds('Gcommon',Gcommon)">Golden</button></p>
+                <p class = "win-type-base">Common: <input class='win-textbox' id="common" type = "number" ng-model = "common"  placeholder="Common cards"><button class="win-button win-button-primary" ng-click="adds('common',common,'ct',0,'')">Add</button> <input class='win-textbox' id="Gcommon" type = "number" ng-model = "Gcommon"  placeholder="Common cards"><button class="win-button win-button-seconday" style ="background-color: yellow" ng-click="adds('common',Gcommon,'ct',0,'G')">Golden</button></p>
                 
-                <p class = "win-type-base">Rare: <input class='win-textbox' id="rare"  type = "number" ng-model = "rare"  placeholder="Rare cards"><button class="win-button win-button-primary" ng-click="adds('rare',rare)">Add</button> <input class='win-textbox' id="Grare"  type = "number" ng-model = "Grare"  placeholder="Rare cards"><button class="win-button win-button-seconday" style ="background-color: yellow" ng-click="adds('Grare',Grare)">Golden</button></p>
+                <p class = "win-type-base">Rare: <input class='win-textbox' id="rare"  type = "number" ng-model = "rare"  placeholder="Rare cards"><button class="win-button win-button-primary" ng-click="adds('rare',rare,'rt',1,'')">Add</button> <input class='win-textbox' id="Grare"  type = "number" ng-model = "Grare"  placeholder="Rare cards"><button class="win-button win-button-seconday" style ="background-color: yellow" ng-click="adds('rare',Grare,'rt',1,'G')">Golden</button></p>
                 
-                <p class = "win-type-base">Epic: <input class='win-textbox' id="epic"  type = "number" ng-model = "epic" placeholder="Epic cards"><button class="win-button win-button-primary" ng-click="adds('epic',epic)">Add</button> <input class='win-textbox' id="Gepic"  type = "number" ng-model = "Gepic"  placeholder="Rare cards"><button class="win-button win-button-seconday" style ="background-color: yellow" ng-click="adds('Gepic',Gepic)">Golden</button></p>
+                <p class = "win-type-base">Epic: <input class='win-textbox' id="epic"  type = "number" ng-model = "epic" placeholder="Epic cards"><button class="win-button win-button-primary" ng-click="adds('epic',epic,'et',2,'')">Add</button> <input class='win-textbox' id="Gepic"  type = "number" ng-model = "Gepic"  placeholder="Rare cards"><button class="win-button win-button-seconday" style ="background-color: yellow" ng-click="adds('epic',Gepic,'et',2,'G')">Golden</button></p>
                 
-                <p class = "win-type-base">Legendary: <input  class='win-textbox' id="lege" type = "number" ng-model = "legendary" placeholder="Legendary cards"><button class="win-button win-button-primary" ng-click="adds('legendary',legendary)">Add</button> <input class='win-textbox' id="Glegendary"  type = "number" ng-model = "Glegendary"  placeholder="Rare cards"><button class="win-button win-button-seconday" style ="background-color: yellow" ng-click="adds('Glegendary',Glegendary)">Golden</button></p>
+                <p class = "win-type-base">Legendary: <input  class='win-textbox' id="lege" type = "number" ng-model = "legendary" placeholder="Legendary cards"><button class="win-button win-button-primary" ng-click="adds('legendary',legendary,'lt',3,'')">Add</button> <input class='win-textbox' id="Glegendary"  type = "number" ng-model = "Glegendary"  placeholder="Rare cards"><button class="win-button win-button-seconday" style ="background-color: yellow" ng-click="adds('legendary',Glegendary,'lt',3,'G')">Golden</button></p>
                 
             </div>
             <p  class = "win-type-base">Amount of dust aquired on disenchant:</p>
             <ul>
-                <li class = "win-type-body">{{DustAmount[0].name}} : {{+DustAmount[0].cost * common + DustAmount[0].cost * Gcommon * DustAmount[0].golden}}</li>
-                <li class = "win-type-body">{{DustAmount[1].name}} : {{+DustAmount[1].cost * rare + DustAmount[1].cost * Grare * DustAmount[1].golden}}</li>
-                <li class = "win-type-body">{{DustAmount[2].name}} : {{+DustAmount[2].cost * epic + DustAmount[2].cost * Gepic * DustAmount[2].golden}}</li>
-                <li class = "win-type-body">{{DustAmount[3].name}} : {{+DustAmount[3].cost * legendary + DustAmount[3].cost * Glegendary * DustAmount[3].golden}}</li>
+                <li class = "win-type-body">{{DustAmount[0].name}} : {{DustAmount[0].cost * common + DustAmount[0].cost * DustAmount[0].golden * Gcommon}}</li>
+                <li class = "win-type-body">{{DustAmount[1].name}} : {{DustAmount[1].cost * rare + DustAmount[1].cost * DustAmount[1].golden * Grare}}</li>
+                <li class = "win-type-body">{{DustAmount[2].name}} : {{DustAmount[2].cost * epic + DustAmount[2].cost * DustAmount[2].golden * Gepic}}</li>
+                <li class = "win-type-body">{{DustAmount[3].name}} : {{DustAmount[3].cost * legendary + DustAmount[3].cost * DustAmount[3].golden * Glegendary}}</li>
             </ul>
-            <p class ="win-type-body">DUST TOTAL: {{ct}}</p>
+            <p class ="win-type-body" ng-model = "tt"> DUST TOTAL: {{tt}}</p>
         </div>
 
         
