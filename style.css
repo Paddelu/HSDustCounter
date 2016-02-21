@@ -1,3 +1,16 @@
 html, body {
     overflow-y: visible;
 }
+
+.win-textarea, .win-textbox {
+  width: 64px;   
+}
+
+#name {
+    width: 120px;
+}
+
+.win-button {
+    min-width: 74px;
+    width: 50px;   
+}
